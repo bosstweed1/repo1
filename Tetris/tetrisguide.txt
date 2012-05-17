@@ -1,0 +1,7 @@
+Tetris program Guideline:
+
+1.) Create the panels for game //abeers 5/16
+2.) Specify panels for individual tasks //abeers 5/16
+3.) Create and understand how gameboard panel will function 
+4.) Address all panels adding primitive text and buttons (to start and end a game, labels on all panels)
+5.) TBD
