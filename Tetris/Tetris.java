@@ -13,7 +13,8 @@ public class Tetris
 {
 	JFrame theWindow;
 	Container thePane;
-	MyPanel gamePanel;				
+	MyPanel gamePanel;
+	MyPanel array [];				
 	MyPanel buttonPanel, leftPanel,rightPanel,nextPanel,timePanel,linesPanel,totalPanel,nextLinePanel,levelPanel;
 	JButton newGame,pause,endGame;
 	MyListener theListener;
@@ -36,70 +37,78 @@ public class Tetris
 		thePane = theWindow.getContentPane();					
 		thePane.setLayout(new GridLayout(1, 1));
 		
-		gamePanel = new MyPanel(1500, 1000);		
-		gamePanel.setLayout(new GridLayout(1, 1));
+		gamePanel = new MyPanel(500, 500);		
+		gamePanel.setLayout(new GridLayout(1, 2));
 		
-		leftPanel = new MyPanel(1500, 750);
-		leftPanel.setLayout(new GridLayout(20, 10));
+		leftPanel = new MyPanel(100, 500);
+		leftPanel.setLayout(new GridLayout(20, 5));
 		leftPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		
-		rightPanel = new MyPanel(1500,250);
+	
+		rightPanel = new MyPanel(400,500);
 		rightPanel.setLayout(new GridLayout(5,1));
-		rightPanel.setBorder(BorderFactory.createLineBorder(Color.red));
 		
-		nextPanel = new MyPanel(250,300);
+		
+		nextPanel = new MyPanel(1,1);
 		nextPanel.setLayout(new GridLayout(2,1));
-		nextPanel.setBorder(BorderFactory.createLineBorder(Color.blue));
 		
-		timePanel = new MyPanel(250,300);
+		
+		timePanel = new MyPanel(100,100);
 		timePanel.setLayout(new GridLayout(2,1));
-		timePanel.setBorder(BorderFactory.createLineBorder(Color.red));
 		
-		linesPanel = new MyPanel(250,300);
+		
+		linesPanel = new MyPanel(100,100);
 		linesPanel.setLayout(new GridLayout(5,1));
-		linesPanel.setBorder(BorderFactory.createLineBorder(Color.blue));
 		
-		levelPanel = new MyPanel(250,300);
+		
+		levelPanel = new MyPanel(100,100);
 		levelPanel.setLayout(new GridLayout(2,1));
-		levelPanel.setBorder(BorderFactory.createLineBorder(Color.red));
 		
-		buttonPanel = new MyPanel(250,300);
+		
+		buttonPanel = new MyPanel(100,100);
 		buttonPanel.setLayout(new GridLayout(3,1));
-		buttonPanel.setBorder(BorderFactory.createLineBorder(Color.blue));
+		
 		
 		newGame = new JButton("New Game");
-		newGame.setFont(new Font("Serif", Font.ITALIC, 12));
+		newGame.setFont(new Font("Serif", Font.ITALIC, 20));
 		buttonPanel.add(newGame);
 		newGame.addActionListener(theListener);
 		
 		pause = new JButton("Pause");
-		pause.setFont(new Font("Serif", Font.ITALIC, 12));
+		pause.setFont(new Font("Serif", Font.ITALIC, 20));
 		buttonPanel.add(pause);
 		pause.addActionListener(theListener);
 		
 		endGame = new JButton("End Game");
-		endGame.setFont(new Font("Serif", Font.ITALIC, 12));
+		endGame.setFont(new Font("Serif", Font.ITALIC, 20));
 		buttonPanel.add(endGame);
 		endGame.addActionListener(theListener);
 		
 		
 		JLabel levelText = new JLabel("Level",SwingConstants.CENTER);
-		levelText.setFont(new Font("Serif", Font.ITALIC, 12));
+		levelText.setFont(new Font("Serif", Font.ITALIC, 20));
+		levelText.setBorder(BorderFactory.createLineBorder(Color.gray));
 		JLabel currentLevel = new JLabel("0",SwingConstants.CENTER);
-		currentLevel.setFont(new Font("Serif", Font.ITALIC, 12));
+		currentLevel.setBorder(BorderFactory.createLineBorder(Color.gray));
+		currentLevel.setFont(new Font("Serif", Font.ITALIC, 20));
 		levelPanel.add(levelText);
 		levelPanel.add(currentLevel);
 		
 		JLabel lineText = new JLabel("<html><b>Lines</b></html>",SwingConstants.CENTER);
 		lineText.setFont(new Font("Serif", Font.ITALIC, 20));
+		lineText.setBorder(BorderFactory.createLineBorder(Color.gray));
 		JLabel line1Text = new JLabel("Total",SwingConstants.CENTER);
-		line1Text.setFont(new Font("Serif", Font.ITALIC, 12));
+		line1Text.setFont(new Font("Serif", Font.ITALIC, 16));
+		line1Text.setBorder(BorderFactory.createLineBorder(Color.gray));
 		JLabel line2Text = new JLabel("0",SwingConstants.CENTER);
-		line2Text.setFont(new Font("Serif", Font.ITALIC, 12));
+		line2Text.setFont(new Font("Serif", Font.ITALIC, 16));
+		line2Text.setBorder(BorderFactory.createLineBorder(Color.gray));
 		JLabel line3Text = new JLabel("Next Level in",SwingConstants.CENTER);
-		line3Text.setFont(new Font("Serif", Font.ITALIC, 12));
+		line3Text.setFont(new Font("Serif", Font.ITALIC, 16));
+		line3Text.setBorder(BorderFactory.createLineBorder(Color.gray));
 		JLabel line4Text = new JLabel("10",SwingConstants.CENTER);
-		line4Text.setFont(new Font("Serif", Font.ITALIC, 12));
+		line4Text.setFont(new Font("Serif", Font.ITALIC, 16));
+		line4Text.setBorder(BorderFactory.createLineBorder(Color.gray));
 		linesPanel.add(lineText);
 		linesPanel.add(line1Text);
 		linesPanel.add(line2Text);
@@ -107,16 +116,20 @@ public class Tetris
 		linesPanel.add(line4Text);
 		
 		JLabel timeText = new JLabel("Time",SwingConstants.CENTER);
-		timeText.setFont(new Font("Serif", Font.ITALIC, 12));
+		timeText.setFont(new Font("Serif", Font.ITALIC, 20));
+		timeText.setBorder(BorderFactory.createLineBorder(Color.gray));
 		JLabel gameTime = new JLabel("0",SwingConstants.CENTER);
-		timeText.setFont(new Font("Serif", Font.ITALIC, 12));
+		gameTime.setFont(new Font("Serif", Font.ITALIC, 20));
+		gameTime.setBorder(BorderFactory.createLineBorder(Color.gray));
 		timePanel.add(timeText);
 		timePanel.add(gameTime);
 		
 		JLabel nextText = new JLabel("<html> <center>Next</center></html>",SwingConstants.CENTER);
-	    nextText.setFont(new Font("Serif", Font.ITALIC, 12));
+	    nextText.setFont(new Font("Serif", Font.ITALIC, 20));
+	    nextText.setBorder(BorderFactory.createLineBorder(Color.gray));
 		JLabel nextPiece = new JLabel("0",SwingConstants.CENTER);
-		nextPiece.setFont(new Font("Serif", Font.ITALIC, 12));
+		nextPiece.setFont(new Font("Serif", Font.ITALIC, 20));
+	
 		nextPanel.add(nextText);
 		nextPanel.add(nextPiece);
 		
@@ -126,7 +139,19 @@ public class Tetris
 		rightPanel.add(levelPanel);
 		rightPanel.add(buttonPanel);
 		
+		array = new MyPanel[200];
+		
+		for(int i=0;i<200;i++)
+		{
+			array[i] = new MyPanel(10,10);
+			array[i].setBorder(BorderFactory.createLineBorder(Color.gray));
+			leftPanel.add(array[i]);
+		}
+		
+		
+			
 		gamePanel.add(leftPanel);
+		
 		gamePanel.add(rightPanel);
 		
 		thePane.add(gamePanel);
