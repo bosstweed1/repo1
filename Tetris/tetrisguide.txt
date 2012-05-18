@@ -2,6 +2,14 @@ Tetris program Guideline:
 
 1.) Create the panels for game //abeers 5/16
 2.) Specify panels for individual tasks //abeers 5/16
-3.) Create and understand how gameboard panel will function 
-4.) Address all panels adding primitive text and buttons (to start and end a game, labels on all panels)
-5.) TBD
+3.) Create and understand how gameboard panel will function //abeers 5/17
+4.) Address all panels adding primitive text and buttons (to start and end a game, labels on all panels) //abeers 5/17
+5.) Brainstorm about what it means to start a tetris game
+6.) Create a Piece.java where we can put polymorphism to use (all pieces can spin, be dropped and be created)
+7.) Give pieces colors and numbers
+8.) Create pieces and place them at the top of the array of jPanels
+9.) Somehow use the system clock to move the piece down after a certain amount of time
+10.) Think about what it means to rotate a piece
+11.) Create the code for rotations
+12.) Apply Keyboard keys for rotations.
+13.) TBD
